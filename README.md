@@ -6,23 +6,29 @@
 
 ## 따로 install이 필요한 패키지
 
-Mecab
-matplotlib
-sklearn
-ckonlpy
-scipy
-numpy
-soynlp
-soykeyword
+* numpy
+* pandas
+* matplotlib
+* sklearn
+* scipy
+* Mecab
+* ckonlpy
+* soynlp
+* soykeyword
 
 ## 프로세스
 1. Crawl_Naver_blog_Itaewon.ipynb -> 크롤링
 	- 블로그 리뷰 제목과 본문의 일부만을 크롤링
 	- input: 네이버 음식점 메인 소개 페이지, 네이버 음식점 블로그 리뷰 페이지(끝이 tabPage = 숫자 형태로 끝나는 꼴이어야함)
-		ex. 홍대에 위치한 다락투
+		- ex. 홍대에 위치한 다락투
+		<pre>
+		<code>
 		main_url ='https://store.naver.com/restaurants/detail?id=31202900&tab=main'
 		tab_url = 'https://store.naver.com/restaurants/detail?id=31202900&tab=fsasReview&tabPage=1'
 		data = crawl_rest(main_url, tab_url, 12, '다락투')
+		</code>
+		</pre>
+		
 		
 2. MyTag_Extractor.ipynb -> 전처리 및 태그 추출
 	- 이용한 로직: extractor가 각각 계산한 단어의 중요도(score)에 가중치를 통한 키워드 추출 
@@ -31,8 +37,8 @@ soykeyword
 		- tf-idf
 		- soyextractor
 	- 가중치를 줄 태그 우선순위
-		기준: 사람들이 음식점을 인지(기억)할 때, 메타 정보는 무엇인가
-		아래와 같이 크게 3가지의 카테고리를 잡고 해당 태그가 아래 카테고리에 포함되면 extractor가 계산한 score 값에 가중치를 더해 합산
+		- 기준: 사람들이 음식점을 인지(기억)할 때, 메타 정보는 무엇인가
+		- 아래와 같이 크게 3가지의 카테고리를 잡고 해당 태그가 아래 카테고리에 포함되면 extractor가 계산한 score 값에 가중치를 더해 합산
 		1. 음식
 			- food_dic.txt 에 음식사전 구축
 		2. 목적
