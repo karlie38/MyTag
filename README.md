@@ -25,7 +25,7 @@ soykeyword
 		data = crawl_rest(main_url, tab_url, 12, '다락투')
 		
 2. MyTag_Extractor.ipynb -> 전처리 및 태그 추출
-	이용한 로직: extractor가 각각 계산한 단어의 중요도(score)에 가중치를 통한 키워드 추출 
+	- 이용한 로직: extractor가 각각 계산한 단어의 중요도(score)에 가중치를 통한 키워드 추출 
 	- 3가지 extractor 조합
 		- textrank
 		- tf-idf
